@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects &mdash; Joelle Faybishenko</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Joelle Faybishenko</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="projects.html" class="active">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Page Header -->
+  <header class="hero">
+    <div class="container">
+      <h1>Projects &amp; Research</h1>
+      <p class="subtitle">A selection of research projects, tools, and explorations across computational neuroscience, brain-computer interfaces, and bioinformatics.</p>
+    </div>
+  </header>
+
+  <!-- Current Research -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Current Research</h2>
+      <div class="card-grid">
+
+        <div class="card">
+          <div class="card-label">Grewe Lab &middot; INI, UZH &amp; ETH Zurich</div>
+          <h3>Semantic Analysis of World Models in Continual Learning</h3>
+          <p>Investigating how world model representations and generated trajectories evolve across sequential reinforcement learning tasks. Training agents on a sequence of MiniGrid environments and semantically analyzing imagined trajectories from frozen model checkpoints to quantify retention and overwriting of prior task knowledge.</p>
+          <div class="tags">
+            <span class="tag">Reinforcement Learning</span>
+            <span class="tag">World Models</span>
+            <span class="tag">Continual Learning</span>
+            <span class="tag">PyTorch</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Gage Lab &middot; Salk Institute</div>
+          <h3>Quantifying LINE-1 Expression in Alzheimer's Disease</h3>
+          <p>Developed a simulation framework to generate ground-truth RNA-seq datasets and benchmark transposable element quantification tools. Demonstrated that existing methods systematically overestimate TE expression; designed a modified reference transcriptome to correct for this inflation. Benchmarked across long-read (ONT, PacBio IsoSeq) and short-read platforms.</p>
+          <div class="tags">
+            <span class="tag">Bioinformatics</span>
+            <span class="tag">RNA-Seq</span>
+            <span class="tag">Alzheimer's</span>
+            <span class="tag">Genomics</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Research -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Past Research &amp; Projects</h2>
+      <div class="card-grid">
+
+        <div class="card">
+          <div class="card-label">Natural Computation Lab &middot; UC San Diego</div>
+          <h3>Zinc Dry Electrode Development and Characterization</h3>
+          <p>Contributed to data collection, signal processing, and classification for benchmarking custom low-cost zinc disc and concentric ring electrodes for wearable EEG. Published at IEEE EMBC 2024.</p>
+          <div class="tags">
+            <span class="tag">EEG</span>
+            <span class="tag">Signal Processing</span>
+            <span class="tag">Wearables</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Natural Computation Lab &middot; UC San Diego</div>
+          <h3>SSVEP &amp; Motor Imagery EEG Spelling Bee</h3>
+          <p>Using OpenBCI's Cyton board and EEG cap to play the NYT Spelling Bee game via SSVEP classification of visual cortex signals. A hybrid BCI integrating non-linear prediction models for high accuracy classification.</p>
+          <div class="tags">
+            <span class="tag">BCI</span>
+            <span class="tag">SSVEP</span>
+            <span class="tag">OpenBCI</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Triton NeuroTech &middot; UC San Diego</div>
+          <h3>EMG Computer Mouse</h3>
+          <p>Led an EMG-controlled BCI project that navigates a computer using a custom armband and electrodes. Placed second in the International NeuroTechX Student Club Competition 2023.</p>
+          <div class="tags">
+            <span class="tag">EMG</span>
+            <span class="tag">BCI</span>
+            <span class="tag">Hardware</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Triton NeuroTech &middot; UC San Diego</div>
+          <h3>Your Mind on DALL-E</h3>
+          <p>Processed and prepared ImageNet stimulus data from the BOLD-5000 dataset to generate image predictions from fMRI neural data using OpenAI's DALL-E.</p>
+          <div class="tags">
+            <span class="tag">fMRI</span>
+            <span class="tag">Generative AI</span>
+            <span class="tag">Neural Decoding</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Triton NeuroTech &middot; UC San Diego</div>
+          <h3>EEG Speller</h3>
+          <p>Contributed to three parallel sub-projects (motor imagery, P300 potential, and SSVEP) to build a hands-free communication system via EEG. Placed second in two international neurotechnology competitions.</p>
+          <div class="tags">
+            <span class="tag">EEG</span>
+            <span class="tag">P300</span>
+            <span class="tag">SSVEP</span>
+            <span class="tag">Motor Imagery</span>
+          </div>
+        </div>
+
+        <div class="card">
+          <div class="card-label">Knight Lab &middot; UC San Diego</div>
+          <h3>The Human Gut Microbiome as it Compares to Animals</h3>
+          <p>Developed a QIIME2 plugin performing nested classification to identify the most phylogenetically similar animal gut microbiome to a given human sample. Built and trained scikit-learn classifiers at each node of a custom NCBI taxonomic tree.</p>
+          <div class="tags">
+            <span class="tag">Microbiome</span>
+            <span class="tag">QIIME2</span>
+            <span class="tag">scikit-learn</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Publications -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Publications</h2>
+
+      <div class="pub-item">
+        <h3>Development and Characterization of Zinc Dry Electrodes for Wearable Electrophysiology</h3>
+        <div class="authors">C. Rizq &amp; A. D'Amico, A. Truel &amp; J. Faybishenko, M. Lee, J. Kim, G. Cauwenberghs, and V. de Sa</div>
+        <div class="venue">IEEE EMBC 2024, Orlando, FL &middot; <a href="https://doi.org/10.1109/EMBC53108.2024.10782529" target="_blank">doi</a></div>
+      </div>
+
+      <div class="pub-item">
+        <h3>Methods and techniques enabling multi-kilobase long-range genomic rewrite/replace editing</h3>
+        <div class="authors">C. Piggott, L. Tjang, S. Chen, U. Tatu, H. Hirou, A. Jaroszewska, E. McIntyre, J. Chen, J. V. Faybishenko, R. Gavan, C. Hackley</div>
+        <div class="venue">bioRxiv 2023 &middot; <a href="https://doi.org/10.1101/2023.08.05.551844" target="_blank">doi</a></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Teaching -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Teaching</h2>
+      <div>
+        <div class="timeline-item">
+          <h3>Neuroanatomy &amp; Physiology &mdash; Instructional Assistant</h3>
+          <div class="meta">UC San Diego &middot; COGS 107A &middot; Fall '22, Spring '23, Fall '23</div>
+          <p>Organized and taught course content to nearly a hundred students through weekly discussion sections and office hours. 100% student recommendation rate.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Triton NeuroTech &mdash; Project Advisor</h3>
+          <div class="meta">UC San Diego &middot; 2021&ndash;2024</div>
+          <p>Advised and mentored student projects including Prosthetic Arm, Imagined Music EEG, Neurofeedback Software, Tetris with Motor Imagery, and P300 Potential Magician.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Neural Data Workshop &mdash; Instructor</h3>
+          <div class="meta">UC San Diego &middot; August 2022</div>
+          <p>Curated materials to teach introductory Python and neural data analysis in a bi-weekly summer workshop.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Raspberry Pi Bioinformatics Workshop</h3>
+          <div class="meta">TRIO Outreach, San Diego &middot; Dec '21 &ndash; June '22</div>
+          <p>Taught bioinformatics to high school students through SSHing to Raspberry Pis installed with bioinformatics pipelines.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <span>&copy; 2026 Joelle Faybishenko</span>
+      <ul class="footer-links">
+        <li><a href="mailto:joelle@faybishenko.com">Email</a></li>
+        <li><a href="https://github.com/jjjoelle" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/joelle-faybishenko/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
