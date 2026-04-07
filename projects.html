@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Projects &mdash; Joelle Faybishenko</title>
+  <meta name="description" content="Research projects and publications by Joelle Faybishenko — spanning computational neuroscience, brain-computer interfaces, and bioinformatics.">
+  <meta property="og:title" content="Projects &amp; Research — Joelle Faybishenko">
+  <meta property="og:description" content="Research projects and publications spanning computational neuroscience, brain-computer interfaces, and bioinformatics.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,9 +23,9 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html">About</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html" onclick="document.querySelector('.nav-links').classList.remove('open')">About</a></li>
+        <li><a href="projects.html" class="active" onclick="document.querySelector('.nav-links').classList.remove('open')">Projects</a></li>
+        <li><a href="blog.html" onclick="document.querySelector('.nav-links').classList.remove('open')">Blog</a></li>
       </ul>
     </div>
   </nav>

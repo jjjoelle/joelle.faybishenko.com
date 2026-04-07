@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Blog &mdash; Joelle Faybishenko</title>
+  <meta name="description" content="Blog by Joelle Faybishenko — thoughts on neuroscience, technology, and the spaces in between.">
+  <meta property="og:title" content="Blog — Joelle Faybishenko">
+  <meta property="og:description" content="Thoughts on neuroscience, technology, and the spaces in between.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,9 +23,9 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="blog.html" class="active">Blog</a></li>
+        <li><a href="index.html" onclick="document.querySelector('.nav-links').classList.remove('open')">About</a></li>
+        <li><a href="projects.html" onclick="document.querySelector('.nav-links').classList.remove('open')">Projects</a></li>
+        <li><a href="blog.html" class="active" onclick="document.querySelector('.nav-links').classList.remove('open')">Blog</a></li>
       </ul>
     </div>
   </nav>
@@ -43,15 +48,13 @@
       </div>
 
       <!--
-        === TEMPLATE: Copy this block for each new blog post ===
+        Add blog posts here (remove the empty-state div above when you have content):
 
         <div class="blog-post-preview">
-          <span class="date">March 18, 2026</span>
-          <h3><a href="#">Post Title Here</a></h3>
-          <p>A brief excerpt or summary of the post goes here. Keep it to one or two sentences to give readers a taste of what's inside.</p>
+          <span class="date">April 7, 2026</span>
+          <h3><a href="blog/post-slug.html">Post Title Here</a></h3>
+          <p>A brief excerpt or summary of the post. One to two sentences.</p>
         </div>
-
-        === END TEMPLATE ===
       -->
 
     </div>

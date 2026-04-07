@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Post Title &mdash; Joelle Faybishenko</title>
+  <meta name="description" content="One to two sentence summary of this post.">
+  <meta property="og:title" content="Post Title — Joelle Faybishenko">
+  <meta property="og:description" content="One to two sentence summary of this post.">
+  <meta property="og:type" content="article">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .post-body {
+      max-width: 660px;
+    }
+    .post-body h2 {
+      font-family: var(--font-serif);
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 2rem 0 0.6rem;
+    }
+    .post-body p {
+      color: var(--color-text-secondary);
+      font-size: 1.02rem;
+      line-height: 1.75;
+      margin-bottom: 1rem;
+    }
+    .back-link {
+      display: inline-block;
+      font-size: 0.88rem;
+      color: var(--color-text-secondary);
+      margin-bottom: 2.5rem;
+    }
+    .back-link:hover {
+      color: var(--color-accent);
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav>
+    <div class="container">
+      <a href="index.html" class="logo">Joelle Faybishenko</a>
+      <button class="menu-toggle" aria-label="Toggle menu" onclick="document.querySelector('.nav-links').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-links">
+        <li><a href="index.html" onclick="document.querySelector('.nav-links').classList.remove('open')">About</a></li>
+        <li><a href="projects.html" onclick="document.querySelector('.nav-links').classList.remove('open')">Projects</a></li>
+        <li><a href="blog.html" class="active" onclick="document.querySelector('.nav-links').classList.remove('open')">Blog</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Post Header -->
+  <header class="hero">
+    <div class="container">
+      <h1>Post Title Here</h1>
+      <p class="subtitle">April 7, 2026</p>
+    </div>
+  </header>
+
+  <!-- Post Body -->
+  <section>
+    <div class="container">
+      <a href="blog.html" class="back-link">&larr; Back to Blog</a>
+      <div class="post-body">
+
+        <p>Your opening paragraph goes here. Set the scene or state the main idea.</p>
+
+        <h2>A Section Heading</h2>
+        <p>Body content goes here. Use as many paragraphs and headings as you need.</p>
+
+        <p>Another paragraph.</p>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <span>&copy; 2026 Joelle Faybishenko</span>
+      <ul class="footer-links">
+        <li><a href="mailto:joelle@faybishenko.com">Email</a></li>
+        <li><a href="https://github.com/jjjoelle" target="_blank">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/joelle-faybishenko/" target="_blank">LinkedIn</a></li>
+      </ul>
+    </div>
+  </footer>
+
+</body>
+</html>
