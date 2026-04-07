@@ -4,6 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Joelle Faybishenko</title>
+  <meta name="description" content="Joelle Faybishenko — MSc student in Neural Systems &amp; Computation at ETH Zurich &amp; University of Zurich. Researcher in computational neuroscience, brain-computer interfaces, and bioinformatics.">
+  <meta property="og:title" content="Joelle Faybishenko">
+  <meta property="og:description" content="MSc student in Neural Systems &amp; Computation at ETH Zurich &amp; University of Zurich. Interested in understanding the brain through computational tools.">
+  <meta property="og:type" content="website">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Lora:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
@@ -18,16 +23,19 @@
         <span></span><span></span><span></span>
       </button>
       <ul class="nav-links">
-        <li><a href="index.html" class="active">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="index.html" class="active" onclick="document.querySelector('.nav-links').classList.remove('open')">About</a></li>
+        <li><a href="projects.html" onclick="document.querySelector('.nav-links').classList.remove('open')">Projects</a></li>
+        <li><a href="blog.html" onclick="document.querySelector('.nav-links').classList.remove('open')">Blog</a></li>
       </ul>
     </div>
   </nav>
 
   <!-- Hero -->
   <header class="hero">
-    <div class="container">
+    <div class="container hero-inner">
+      <!-- Replace src with your photo filename, e.g. photo.jpg -->
+      <img src="photo.jpg" alt="Joelle Faybishenko" class="hero-photo">
+      <div>
       <h1>Hello, I'm Joelle.</h1>
       <p class="subtitle">
         MSc student in Neural Systems &amp; Computation at ETH Zurich &amp; University of Zurich. I'm interested in understanding what makes humans special: their brain &mdash; and how computational tools can help us decode it.
@@ -36,6 +44,8 @@
         <a href="mailto:joelle@faybishenko.com">Email</a>
         <a href="https://github.com/jjjoelle" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/joelle-faybishenko/" target="_blank">LinkedIn</a>
+        <a href="Joelle Faybishenko.pdf" target="_blank">Resume</a>
+      </div>
       </div>
     </div>
   </header>
@@ -73,6 +83,45 @@
           <h3>University of California, San Diego</h3>
           <div class="meta">BS in Computer Science, Bioinformatics &middot; Minor in Cognitive Science &middot; Sep 2020 &ndash; Mar 2024</div>
           <p>GPA: 3.74 / 4.0 &middot; Revelle College Provost Honors</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Experience -->
+  <section>
+    <div class="container">
+      <h2 class="section-title">Experience</h2>
+      <div>
+        <div class="timeline-item">
+          <h3>Grewe Lab &mdash; Research Intern</h3>
+          <div class="meta">INI, UZH &amp; ETH Zurich &middot; Feb 2025 &ndash; Present</div>
+          <p>Investigating world model representations and imagined trajectories in continual reinforcement learning agents trained on sequential MiniGrid environments.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Gage Lab &mdash; Computational Researcher</h3>
+          <div class="meta">Salk Institute for Biological Studies &middot; 2023 &ndash; Present</div>
+          <p>Developing simulation frameworks to benchmark transposable element quantification tools in RNA-seq, with application to Alzheimer's disease.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Colosseum &mdash; Organizing Committee</h3>
+          <div class="meta">ETH Entrepreneur Club &middot; 2025 &ndash; Present</div>
+          <p>Organizing debates, hackathons, and conferences across Europe.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>CRISP-HR Therapeutics &mdash; Research Intern</h3>
+          <div class="meta">2023</div>
+          <p>Contributed to long-range genomic rewrite/replace editing research; co-author on bioRxiv preprint.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>de Sa Lab &mdash; Research Assistant</h3>
+          <div class="meta">UC San Diego &middot; 2022 &ndash; 2024</div>
+          <p>Data collection, signal processing, and classification for zinc dry electrode characterization for wearable EEG. Published at IEEE EMBC 2024.</p>
+        </div>
+        <div class="timeline-item">
+          <h3>Knight Lab &mdash; Research Assistant</h3>
+          <div class="meta">UC San Diego &middot; 2021 &ndash; 2022</div>
+          <p>Built a QIIME2 plugin for phylogenetic classification of human gut microbiome samples relative to animal gut microbiomes.</p>
         </div>
       </div>
     </div>
