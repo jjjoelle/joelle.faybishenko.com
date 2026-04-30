@@ -294,27 +294,13 @@ section + section {
   border-radius: 100px;
 }
 
-/* ===== Timeline (Experience) ===== */
+/* ===== Entries (Education, Experience, Organizations) ===== */
 .timeline-item {
-  position: relative;
-  padding-left: 1.5rem;
   padding-bottom: 2rem;
-  border-left: 2px solid var(--color-border);
 }
 
 .timeline-item:last-child {
   padding-bottom: 0;
-}
-
-.timeline-item::before {
-  content: '';
-  position: absolute;
-  left: -5px;
-  top: 6px;
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--color-accent);
 }
 
 .timeline-item h3 {
