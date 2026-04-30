@@ -33,22 +33,283 @@
   <!-- Hero -->
   <header class="hero">
     <div class="container hero-inner">
-      <!-- Replace src with your photo filename, e.g. photo.jpg -->
-      <img src="photo.jpg" alt="Joelle Faybishenko" class="hero-photo">
       <div>
-      <h1>Hello, I'm Joelle.</h1>
+      <h1>Hello, I'm Joelle!</h1>
       <p class="subtitle">
         MSc student in Neural Systems &amp; Computation at ETH Zurich &amp; University of Zurich. I'm interested in understanding what makes humans special: their brain &mdash; and how computational tools can help us decode it.
       </p>
       <div class="links">
-        <a href="mailto:joelle@faybishenko.com">Email</a>
+        <a href="mailto:jfaybishenko@ethz.ch">Email</a>
         <a href="https://github.com/jjjoelle" target="_blank">GitHub</a>
         <a href="https://www.linkedin.com/in/joelle-faybishenko/" target="_blank">LinkedIn</a>
-        <a href="Joelle Faybishenko.pdf" target="_blank">Resume</a>
       </div>
       </div>
+      <!-- Replace src with your photo filename, e.g. photo.jpg -->
+      <img src="photos/me_web.jpeg" alt="Joelle Faybishenko" class="hero-photo">
     </div>
   </header>
+
+  <!-- Timeline — Dock Magnifier -->
+  <section class="ztl-section">
+  <style>
+    .ztl-section { padding: 3rem 0 2rem; border-top: 1px solid var(--color-border); }
+
+    .ztl-outer {
+      overflow-x: auto;
+      overflow-y: hidden;
+      scrollbar-width: thin;
+      scrollbar-color: var(--color-accent-light) transparent;
+      cursor: grab;
+      padding: 0 1.5rem;
+    }
+    .ztl-outer:active { cursor: grabbing; }
+    .ztl-outer::-webkit-scrollbar { height: 3px; }
+    .ztl-outer::-webkit-scrollbar-thumb { background: var(--color-accent-light); border-radius: 2px; }
+    .ztl-outer::-webkit-scrollbar-track { background: transparent; }
+
+    .ztl-track {
+      display: inline-flex;
+      align-items: flex-start;
+      position: relative;
+      padding: 210px 2rem 0; /* top padding = popup space */
+      height: 310px;
+    }
+
+    /* Static line — never moves */
+    .ztl-track::before {
+      content: '';
+      position: absolute;
+      top: calc(210px + 8px); /* padding-top + half dot */
+      left: 0; right: 0;
+      height: 1.5px;
+      background: linear-gradient(to right, transparent, var(--color-border) 2rem, var(--color-border) calc(100% - 2rem), transparent);
+      pointer-events: none;
+    }
+
+    /* Each year occupies a fixed-width slot — line never changes */
+    .ztl-year {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 110px;
+      flex-shrink: 0;
+    }
+
+    /* Dot — scales up via JS transform */
+    .ztl-dot-wrap {
+      transition: transform 0.12s ease;
+      transform-origin: center bottom;
+      position: relative;
+      z-index: 3;
+    }
+    .ztl-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 50%;
+      background: var(--color-bg);
+      border: 2px solid var(--color-border);
+      transition: background 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+    }
+    .ztl-year.is-active .ztl-dot {
+      background: var(--color-accent);
+      border-color: var(--color-accent);
+      box-shadow: 0 0 0 5px var(--color-accent-light);
+    }
+    .ztl-year.is-near .ztl-dot {
+      border-color: var(--color-accent);
+    }
+
+    .ztl-label {
+      margin-top: 8px;
+      font-size: 0.7rem;
+      color: var(--color-text-secondary);
+      white-space: nowrap;
+      letter-spacing: 0.04em;
+      transition: color 0.15s ease, font-weight 0.15s ease;
+    }
+    .ztl-year.is-active .ztl-label { color: var(--color-accent); font-weight: 600; }
+    .ztl-year.is-near .ztl-label { color: var(--color-text); }
+
+    /* Popup card — appears above dot, within the top padding space */
+    .ztl-popup {
+      position: absolute;
+      bottom: calc(100% - 210px + 14px + 12px); /* above the dot with gap */
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--color-card-bg);
+      border: 1px solid var(--color-border);
+      border-radius: 10px;
+      padding: 0.75rem 0.85rem;
+      min-width: 150px;
+      max-width: 200px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.07);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.18s ease;
+      z-index: 20;
+      white-space: nowrap;
+    }
+    .ztl-year.is-active .ztl-popup { opacity: 1; }
+
+    .ztl-popup-year {
+      font-family: var(--font-serif);
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: 0.4rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .ztl-popup-item {
+      display: flex;
+      align-items: baseline;
+      gap: 0.4rem;
+      font-size: 0.75rem;
+      color: var(--color-text-secondary);
+      line-height: 1.5;
+    }
+    .ztl-popup-item + .ztl-popup-item { margin-top: 0.15rem; }
+
+    .ztl-hint {
+      max-width: var(--max-width);
+      margin: 0.6rem auto 0;
+      padding: 0 1.5rem;
+      font-size: 0.76rem;
+      color: var(--color-text-secondary);
+      opacity: 0.5;
+      font-style: italic;
+    }
+  </style>
+
+  <div style="max-width:var(--max-width);margin:0 auto;padding:0 1.5rem 1.25rem;">
+    <h2 class="section-title">A life so far</h2>
+  </div>
+
+  <div class="ztl-outer" id="ztlOuter">
+    <div class="ztl-track" id="ztlTrack">
+
+      <div class="ztl-year">
+        <div class="ztl-popup">
+          <div class="ztl-popup-year">Early</div>
+          <div class="ztl-popup-item"><span>⛸️</span> Laced up at age 3</div>
+        </div>
+        <div class="ztl-dot-wrap"><div class="ztl-dot"></div></div>
+        <div class="ztl-label">Early</div>
+      </div>
+
+      <div class="ztl-year">
+        <div class="ztl-popup">
+          <div class="ztl-popup-year">2020</div>
+          <div class="ztl-popup-item"><span>🏫</span> Graduated high school</div>
+          <div class="ztl-popup-item"><span>🌊</span> Arrived at UCSD</div>
+          <div class="ztl-popup-item"><span>🧠</span> Joined Triton NeuroTech</div>
+        </div>
+        <div class="ztl-dot-wrap"><div class="ztl-dot"></div></div>
+        <div class="ztl-label">2020</div>
+      </div>
+
+      <div class="ztl-year">
+        <div class="ztl-popup">
+          <div class="ztl-popup-year">2021</div>
+          <div class="ztl-popup-item"><span>🏆</span> NeuroTech Cup: 2nd place</div>
+          <div class="ztl-popup-item"><span>🦠</span> Knight Lab research</div>
+        </div>
+        <div class="ztl-dot-wrap"><div class="ztl-dot"></div></div>
+        <div class="ztl-label">2021</div>
+      </div>
+
+      <div class="ztl-year">
+        <div class="ztl-popup">
+          <div class="ztl-popup-year">2022</div>
+          <div class="ztl-popup-item"><span>📚</span> Taught my first class</div>
+          <div class="ztl-popup-item"><span>⛸️</span> Captain → Collegiate Nationals</div>
+        </div>
+        <div class="ztl-dot-wrap"><div class="ztl-dot"></div></div>
+        <div class="ztl-label">2022</div>
+      </div>
+
+      <div class="ztl-year">
+        <div class="ztl-popup">
+          <div class="ztl-popup-year">2023</div>
+          <div class="ztl-popup-item"><span>🔬</span> NSF REU in BCI</div>
+          <div class="ztl-popup-item"><span>🎤</span> California NeuroTech Conf</div>
+          <div class="ztl-popup-item"><span>🧬</span> Biotech startup summer</div>
+        </div>
+        <div class="ztl-dot-wrap"><div class="ztl-dot"></div></div>
+        <div class="ztl-label">2023</div>
+      </div>
+
+      <div class="ztl-year">
+        <div class="ztl-popup">
+          <div class="ztl-popup-year">2024</div>
+          <div class="ztl-popup-item"><span>🎓</span> Graduated UCSD</div>
+        </div>
+        <div class="ztl-dot-wrap"><div class="ztl-dot"></div></div>
+        <div class="ztl-label">2024</div>
+      </div>
+
+      <div class="ztl-year">
+        <div class="ztl-popup">
+          <div class="ztl-popup-year">2025</div>
+          <div class="ztl-popup-item"><span>✈️</span> Moved to Zurich</div>
+          <div class="ztl-popup-item"><span>🤖</span> Grewe Lab — world models</div>
+        </div>
+        <div class="ztl-dot-wrap"><div class="ztl-dot"></div></div>
+        <div class="ztl-label">2025</div>
+      </div>
+
+    </div>
+  </div>
+  <p class="ztl-hint">hover to zoom &middot; drag to scroll</p>
+
+  <script>
+  (function() {
+    const outer = document.getElementById('ztlOuter');
+    const track = document.getElementById('ztlTrack');
+    const years = Array.from(track.querySelectorAll('.ztl-year'));
+    const RADIUS = 180; // px influence radius
+    const MAX_SCALE = 2.2;
+
+    // Drag to scroll
+    let dragging = false, startX, startScroll;
+    outer.addEventListener('mousedown', e => {
+      dragging = true;
+      outer.style.cursor = 'grabbing';
+      startX = e.pageX;
+      startScroll = outer.scrollLeft;
+    });
+    window.addEventListener('mouseup', () => { dragging = false; outer.style.cursor = 'grab'; });
+    outer.addEventListener('mousemove', e => {
+      if (dragging) { e.preventDefault(); outer.scrollLeft = startScroll - (e.pageX - startX) * 1.5; return; }
+      magnify(e);
+    });
+    track.addEventListener('mouseleave', reset);
+
+    function magnify(e) {
+      const trackRect = track.getBoundingClientRect();
+      const mouseX = e.clientX - trackRect.left + outer.scrollLeft;
+      years.forEach(yr => {
+        const cx = yr.offsetLeft + yr.offsetWidth / 2;
+        const dist = Math.abs(mouseX - cx);
+        const t = Math.max(0, 1 - (dist * dist) / (RADIUS * RADIUS));
+        const scale = 1 + (MAX_SCALE - 1) * t;
+        yr.querySelector('.ztl-dot-wrap').style.transform = `scale(${scale})`;
+        if (t > 0.65) { yr.classList.add('is-active'); yr.classList.remove('is-near'); }
+        else if (t > 0.15) { yr.classList.add('is-near'); yr.classList.remove('is-active'); }
+        else { yr.classList.remove('is-active', 'is-near'); }
+      });
+    }
+
+    function reset() {
+      years.forEach(yr => {
+        yr.querySelector('.ztl-dot-wrap').style.transform = 'scale(1)';
+        yr.classList.remove('is-active', 'is-near');
+      });
+    }
+  })();
+  </script>
+  </section>
 
   <!-- About -->
   <section>
@@ -139,7 +400,7 @@
         </div>
         <div class="timeline-item">
           <h3>Colosseum &mdash; Organizing Committee</h3>
-          <div class="meta">ETH Entrepreneur Club &middot; 2025 &ndash; Present</div>
+          <div class="meta">ETH Entrepreneur Club &middot; 2026 &ndash; Present</div>
           <p>Organizing debates, hackathons, and conferences across Europe.</p>
         </div>
         <div class="timeline-item">
@@ -190,11 +451,11 @@
       <div class="pub-group">
         <h3 class="pub-group-title">Triton NeuroTech</h3>
         <div class="pub-item">
-          <p><a href="https://youtu.be/JHjZnrZFi4o" target="_blank">AeroMus</a> Competition Video 2023</p>
-          <p><a href="https://youtu.be/lCYkRotGZEc" target="_blank">Oz-Speller</a> Competition Video 2022</p>
+          <p><a href="https://youtu.be/JHjZnrZFi4o" target="_blank">AeroMus</a> Competition Video 2023 (2nd Place)</p>
+          <p><a href="https://youtu.be/lCYkRotGZEc" target="_blank">Oz-Speller</a> Competition Video 2022 (2nd Place)</p>
           <p><a href="https://neurotechconference.webflow.io/registration" target="_blank">NeuroTech Conference</a>: Your Brain on DALL-E 2023</p>
           <p><a href="https://neurotechconference.webflow.io/registration" target="_blank">NeuroTech Conference</a>: Oz-Speller 2023</p>
-          <p><a href="https://www.youtube.com/watch?v=fzoK8pUTy5g" target="_blank">NeuroTech Cup</a>: Dynamic Stopping P300 Speller with Variational Bayesian Neural Network 2021</p>
+          <p><a href="https://www.youtube.com/watch?v=fzoK8pUTy5g" target="_blank">NeuroTech Cup</a>: Dynamic Stopping P300 Speller with Variational Bayesian Neural Network 2021 (2nd Place)</p>
         </div>
       </div>
 
